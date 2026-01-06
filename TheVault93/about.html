@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Vault 93</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Russo+One&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-orange: #FF4500;
+            --secondary-red: #D32F2F;
+            --dark-gray: #2a2a2a;
+            --mid-gray: #4a4a4a;
+            --light-gray: #f8f9fa;
+            --lighter-gray: #ffffff;
+            --accent-gray: #6c757d;
+            --text-dark: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--lighter-gray);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--lighter-gray) !important;
+            padding: 1.5rem 0;
+            border-bottom: 3px solid var(--primary-orange);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark) !important;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .navbar-brand::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 80%;
+            background: linear-gradient(to bottom, var(--primary-orange), var(--secondary-red));
+            border-radius: 3px;
+        }
+
+        .navbar-brand span {
+            color: var(--primary-orange);
+        }
+
+        .nav-link {
+            color: var(--mid-gray) !important;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 0 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-orange), var(--secondary-red));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-orange) !important;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            padding: 12rem 0 8rem;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--lighter-gray) 100%);
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 69, 0, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-red));
+            color: var(--lighter-gray);
+            padding: 0.6rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .hero-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-gray);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-red));
+            color: white;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-family: 'Russo One', sans-serif;
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: countUp 2s ease;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 6rem 0;
+            background: var(--lighter-gray);
+        }
+
+        .section-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-orange), var(--secondary-red));
+        }
+
+        .story-content {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--mid-gray);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 0;
+            background: var(--light-gray);
+        }
+
+        .value-card {
+            background: var(--lighter-gray);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2);
+        }
+
+        .value-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .value-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            font-size: 1.1rem;
+            color: var(--accent-gray);
+            line-height: 1.8;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
+            background: var(--lighter-gray);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-orange), var(--secondary-red));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 0 2rem;
+        }
+
+        .timeline-year {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-text {
+            font-size: 1.1rem;
+            color: var(--mid-gray);
+            line-height: 1.8;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-orange);
+            border: 4px solid var(--lighter-gray);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-red));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            background: var(--lighter-gray);
+            color: var(--primary-orange);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: var(--primary-orange);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--light-gray);
+            padding: 4rem 0 2rem;
+            border-top: 3px solid var(--primary-orange);
+        }
+
+        .footer-brand {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .footer-brand span {
+            color: var(--primary-orange);
+        }
+
+        .footer-description {
+            color: var(--accent-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-orange);
+            color: var(--lighter-gray);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(255, 69, 0, 0.4);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--accent-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                margin: 0;
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="vault93-diecast-home.html" style="padding-left: 5;">
+                <img src="images/logos/vault93-logo.png" alt="Vault 93" style="height: 50px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="vault93-diecast-home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vault93-diecast-home.html#brands">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="vault93-diecast-home.html#featured">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center">
+                <span class="hero-badge">SINCE 2020</span>
+                <h1 class="hero-title">Our Story</h1>
+                <p class="hero-subtitle">
+                    From passionate collectors to your trusted source for premium diecast models.
+                    We're building the ultimate destination for automotive enthusiasts worldwide.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Models</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Brands</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Happy Collectors</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">The Vault 93 Story</h2>
+            </div>
+            <div class="story-content">
+                <p>
+                    <strong>It started with a passion.</strong> In 2020, a group of automotive enthusiasts and diecast
+                    collectors
+                    came together with a simple vision: to create a premium destination where collectors could find the
+                    highest
+                    quality scale models from around the world in one reliable shop.
+                </p>
+                <p>
+                    We noticed a gap in the market—collectors were struggling to find authentic, limited-edition pieces
+                    from
+                    premium brands like Pop Race, Mini GT, and Hotwheels. The existing options were either unreliable or
+                    lacked the curation and expertise that serious collectors deserved.
+                </p>
+                <p>
+                    <strong>Vault 93 was born.</strong> Named after the legendary year in automotive history and
+                    inspired by
+                    the concept of a secure vault protecting precious treasures, we set out to build more than just an
+                    online
+                    store. We created a community where passion meets precision, where every model tells a story, and
+                    where
+                    collectors can trust they're getting authentic pieces at fair prices.
+                </p>
+                <p>
+                    Today, we're proud to serve thousands of collectors worldwide, offering an ever-growing catalog of
+                    premium
+                    diecast models, exclusive releases, and hard-to-find pieces. But we're just getting started. Our
+                    mission
+                    remains the same: to be your trusted partner in building the ultimate collection.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">What Drives Us</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">🏆</div>
+                        <h3 class="value-title">Authenticity</h3>
+                        <p class="value-description">
+                            Every model we sell is 100% authentic and sourced directly from authorized distributors.
+                            We never compromise on quality or authenticity.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3 class="value-title">Passion</h3>
+                        <p class="value-description">
+                            We're collectors too. Our team hand-picks every model, understanding the thrill of
+                            finding that perfect piece for your collection.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card">
+                        <div class="value-icon">🚀</div>
+                        <h3 class="value-title">Excellence</h3>
+                        <p class="value-description">
+                            From premium packaging to lightning-fast shipping, we obsess over every detail
+                            of your collecting experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Journey</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <p class="timeline-text">
+                            Vault 93 founded with a vision to revolutionize the diecast collecting experience.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <p class="timeline-text">
+                            Reached 1,000+ models in catalog and established partnerships with premium brands
+                            like Pop Race and Mini GT.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <p class="timeline-text">
+                            Served 5,000+ collectors worldwide and launched our exclusive limited edition series.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <p class="timeline-text">
+                            Expanded to 15+ premium brands with 10,000+ happy collectors and counting.
+                            The journey continues!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Join The Collection</h2>
+            <p class="cta-subtitle">
+                Start building your dream garage today with premium diecast from the world's finest brands.
+            </p>
+            <a href="vault93-diecast-home.html" class="btn-cta">
+                <i class="fas fa-shopping-bag"></i> Start Collecting
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="footer-brand">
+                        <img src="images/logos/vault93-logo.png" alt="Vault 93"
+                            style="height: 60px; width: auto; margin-bottom: 1rem;">
+                    </div>
+                    <p class="footer-description">
+                        Your trusted source for premium diecast collectibles. We bring the world's finest scale models
+                        directly to passionate collectors.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578229691949" class="social-link"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/vault.93/2" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@vault_93" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vault 93. All rights reserved. | <a href="mailto:vault.93@outlook.com"
+                        style="color: var(--primary-orange); text-decoration: none;">vault.93@outlook.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 25px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'var(--lighter-gray)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = stat.textContent;
+                        stat.style.opacity = '1';
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>
